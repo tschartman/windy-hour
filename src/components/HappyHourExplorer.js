@@ -23,9 +23,6 @@ export default function HappyHourExplorer({ neighborhoods, restaurants }) {
     setCurrentNeighborhood(index)
   }
 
-  const currentNeighborhoodName = neighborhoods[currentNeighborhood] || ''
-  const happyHourCount = displayedRestaurants.filter(r => r.hasHappyHour).length
-
   return (
     <div>
       {/* Neighborhood Tabs */}
@@ -33,40 +30,6 @@ export default function HappyHourExplorer({ neighborhoods, restaurants }) {
         neighborhoods={neighborhoods}
         onNeighborhoodChange={handleNeighborhoodChange}
       />
-
-      {/* Current Neighborhood Stats */}
-      <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
-            {currentNeighborhoodName
-              .split('-')
-              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-              .join(' ')}
-          </h2>
-          <div className="flex justify-center space-x-8 text-sm text-gray-600">
-            <div>
-              <span className="font-semibold text-blue-600">
-                {displayedRestaurants.length}
-              </span>
-              <span className="ml-1">Total Restaurants</span>
-            </div>
-            <div>
-              <span className="font-semibold text-green-600">
-                {happyHourCount}
-              </span>
-              <span className="ml-1">Happy Hour Available</span>
-            </div>
-            <div>
-              <span className="font-semibold text-amber-600">
-                {displayedRestaurants.length > 0 
-                  ? Math.round((happyHourCount / displayedRestaurants.length) * 100)
-                  : 0}%
-              </span>
-              <span className="ml-1">Success Rate</span>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Restaurant Cards Grid */}
       {displayedRestaurants.length > 0 && (

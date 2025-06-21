@@ -20,11 +20,8 @@ export default function RestaurantCard({ restaurant }) {
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-[600px] flex flex-col">
       {/* Restaurant Header - Compact */}
-      <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-3 flex-shrink-0">
+      <div className="bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-3 flex-shrink-0">
         <h3 className="text-lg font-bold text-white truncate">{restaurant.name}</h3>
-        {restaurant.hasHappyHour && restaurant.dayTime && (
-          <p className="text-amber-100 text-xs mt-1 truncate">{restaurant.dayTime}</p>
-        )}
       </div>
 
       {/* Menu Display - Takes up most space */}
